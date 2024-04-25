@@ -7,8 +7,9 @@ use App\Exports\stokExport;
 use App\Models\stok;
 use App\Models\menu;
 use App\Http\Requests\StorestokRequest;
-use App\Http\Requests\UpdatemenuRequest;
 use App\Http\Requests\UpdatestokRequest;
+use App\Imports\stokImport;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Maatwebsite\Excel\Facades\Excel;
 
 class StokController extends Controller
@@ -40,11 +41,22 @@ class StokController extends Controller
     public function destroy($id)
     {
         stok::find($id)->delete();
-        return redirect('stok')->with('success', 'Data menu berhasil dihapus!');
+        return redirect('stok')->with('success', 'Data stok berhasil dihapus!');
     }
     public function exportData()
     {
         $date = date('Y-m-d');
         return Excel::download(new stokExport, $date . '_stok.xlsx');
+    }
+    public function importData()
+    {
+        Excel::import(new stokImport, request()->file('import'));
+        return redirect()->back()->with('success', 'Import data stok berhasil');
+    }
+    public function pdf()
+    {
+        $stok = stok::all();
+        $pdf = Pdf::loadView('stok.data', compact('stok'));
+        return $pdf->download('stok.pdf');
     }
 }

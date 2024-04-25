@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\DB;
 class stokExport implements FromCollection, WithHeadings
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
 
     public function collection()
     {
@@ -29,7 +29,7 @@ class stokExport implements FromCollection, WithHeadings
         ];
     }
 
-   public function registerEvents(): array
+    public function registerEvents(): array
     {
         return [
             AfterSheet::class => function (AfterSheet $event) {
@@ -40,10 +40,9 @@ class stokExport implements FromCollection, WithHeadings
 
                 $event->sheet->insertNewRowBefore(2, 2);
                 $event->sheet->mergeCells('A1:D1');
-                $event->sheet->setCellValue('A1', 'DATA MENU CAFE');
+                $event->sheet->setCellValue('A1', 'DATA JENIS CAFE');
                 $event->sheet->getStyle('A1')->getFont()->setBold(true);
                 $event->sheet->getStyle('A1')->getAlignment()->setHorizontal(Alignment::HORIZONTAL_CENTER);
-
                 $event->sheet->getStyle('A3:D' . $event->sheet->getHighestRow())->applyFromArray([
                     'borders' => [
                         'allBorders' => [

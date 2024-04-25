@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\pelangganExport;
 use App\Models\pelanggan;
 use App\Http\Requests\StorepelangganRequest;
 use App\Http\Requests\UpdatepelangganRequest;
+use App\Imports\pelangganImport;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Exception;
 use Illuminate\Database\QueryException;
+use Maatwebsite\Excel\Facades\Excel;
 use PDOException;
 
 class PelangganController extends Controller
@@ -34,5 +38,21 @@ class PelangganController extends Controller
     {
         pelanggan::find($id)->delete();
         return redirect('pelanggan')->with('success', 'Data jenis berhasil dihapus!');
+    }
+    public function exportData()
+    {
+        $date = date('Y-m-d');
+        return Excel::download(new pelangganExport, $date . '_pelanggan.xlsx');
+    }
+    public function importData()
+    {
+        Excel::import(new pelangganImport, request()->file('import'));
+        return redirect(request()->segment(1))->with('success', 'Import data pelanggan berhasil');
+    }
+    public function pdf()
+    {
+        $pelanggan = pelanggan::all();
+        $pdf = Pdf::loadView('pelanggan.data', compact('pelanggan'));
+        return $pdf->download('pelanggan.pdf');
     }
 }

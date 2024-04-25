@@ -37,7 +37,8 @@
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormStok">
                                     Tambah Stok
                                 </button>
-                                <a class="btn btn-success" href="{{route('export-menu')}}" class="btn btn-success><i class=" fa fa-file-excel-o"></i>Export</a>
+                                <a class="btn btn-success" href="{{route('export-stok')}}" class="btn btn-success"><i class=" fa fa-file-excel-o"></i>Export</a>
+                                <a class="btn btn-danger" href="{{route('export-stok_pdf')}}" class="btn btn-danger"><i class=" fa fa-file-pdf-o"></i>Export PDF</a>
                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#formImport">
                                     <i class="fas fa-file-excel"></i> Import
                                 </button>

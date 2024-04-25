@@ -20,8 +20,8 @@ class menuExport implements FromCollection, WithHeadings
     {
         return [
             'No.',
+            'Jenis_id',
             'Nama_menu',
-            'Jenis',
             'harga',
             'image',
             'deskripsi',

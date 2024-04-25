@@ -34,8 +34,8 @@
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormMenu">
                                     Tambah Menu
                                 </button>
-                                <a class="btn btn-success" href="{{route('export-menu')}}" class="btn btn-success><i class=" fa fa-file-excel-o"></i>Export</a>
-                                <a class="btn btn-success" href="{{route('export-menu_pdf')}}" class="btn btn-success><i class=" fa fa-file-pdf-o"></i>Export PDF</a>
+                                <a class="btn btn-success" href="{{route('export-menu')}}" class="btn btn-success"><i class=" fa fa-file-excel-o"></i>Export</a>
+                                <a class="btn btn-danger" href="{{route('export-menu.pdf')}}" class="btn btn-danger"><i class=" fa fa-file-pdf-o"></i>Export PDF</a>
                                 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#formImport">
                                     <i class="fas fa-file-excel"></i> Import
                                 </button>
@@ -123,10 +123,10 @@
         const id = btn.data('id')
         const modal = $(this)
         if (mode === 'edit') {
-            console.log(nama_menu)
+            console.log(image)
             modal.find('.modal-title').text('Edit Data Menu')
-            modal.find('#nama_menu').val(nama_menu)
             modal.find('#jenis_id').val(jenis_id)
+            modal.find('#nama_menu').val(nama_menu)
             modal.find('#harga').val(harga)
             // modal.find('#image').val(image)
             modal.find('#deskripsi').val(deskripsi)
@@ -134,9 +134,10 @@
             modal.find('#method').html('@method("PATCH")')
         } else {
             modal.find('.modal-title').text('Input Data jenis')
-            modal.find('#nama_menu').val('')
             modal.find('#jenis_id').val('')
+            modal.find('#nama_menu').val('')
             modal.find('#harga').val('')
+            modal.find('#image').val('')
             // modal.find('#image').val('')
             modal.find('#deskripsi').val('')
             modal.find('#method').html('')

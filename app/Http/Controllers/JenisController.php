@@ -13,15 +13,15 @@ use Illuminate\Http\Request;
 // turunan (in)
 class JenisController extends Controller 
 {
-    public function index() //fm
+    public function index() //property dari class
     {
         $data['jenis'] = jenis::get(); //$variabel // [array] 
         return view('jenis.index')->with($data);
     }
-    public function store(StorejenisRequest $request)
+    public function store(StorejenisRequest $request) //param
     {
         jenis::create($request->all());
-        return redirect('jenis')->with('success', 'Data menu berhasil di tambahkan!');
+        return redirect('jenis')->with('success', 'Data jenis berhasil di tambahkan!');
     }
     public function update(UpdateJenisRequest $request, string $id)
     {
@@ -36,7 +36,7 @@ class JenisController extends Controller
     public function exportData()
     {
         $date = date('Y-m-d');
-        return excel::download(new ExportsJenisExport, $date . '_jenis.xlsx');
+        return excel::download(new ExportsJenisExport, $date . '_jenis.xlsx'); //inheritance new
     }
     public function importData(Request $request)
     {

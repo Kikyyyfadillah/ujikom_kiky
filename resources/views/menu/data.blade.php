@@ -19,7 +19,13 @@
                     <td>{{ $p->nama_menu }}</td>
                     <td>{{ $p->jenis->nama_jenis }}</td>
                     <td>{{ $p->harga }}</td>
+                    @if (request()->route()->getActionMethod() == 'generatepdf')
+                    <td><img width="90px" src="data:image/jpeg;base64,{{ $p->imageData }}" alt=""></td>
+                    @else
+                    <!-- <td><img width="70px" src="{{ asset('images/' . $p->image) }}" alt=""></td> -->
                     <td><img width="90px" src="{{asset('image')}}/{{$p -> image}}" alt="" srcset=""></td>
+                    @endif
+                    <!-- <td><img width="90px" src="{{asset('image')}}/{{$p -> image}}" alt="" srcset=""></td> -->
                     <td>{{ $p->deskripsi }}</td>
                     <td>
                         <button class="btn text-warning" data-toggle="modal" data-target="#modalFormMenu" data-mode="edit" data-id="{{$p->id}}" data-nama_menu="{{ $p->nama_menu }}" data-jenis_id="{{ $p->jenis_id }}" data-harga="{{ $p->harga }}" data-image="{{ $p->image }}" data-deskripsi="{{ $p->deskripsi }}">

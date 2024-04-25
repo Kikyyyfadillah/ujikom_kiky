@@ -1,6 +1,6 @@
 @extends('template/layout')
 
-@push('style') 
+@push('style')
 <!-- drng -->
 @endpush
 
@@ -38,8 +38,8 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormJenis">
                                 <i class="fas fa-poll-h"></i> Tambah Jenis
                             </button>
-                            <a class="btn btn-success" href="{{route('export-jenis')}}" class="btn btn-success><i class=" fa fa-file-excel-o"></i>Export</a>
-                            <a class="btn btn-success" href="{{route('export-jenis_pdf')}}" class="btn btn-success><i class=" fa fa-file-pdf-o"></i>Export PDF</a>
+                            <a class="btn btn-success" href="{{route('export-jenis')}}" class="btn btn-success"><i class=" fa fa-file-excel-o"></i>Export</a>
+                            <a class="btn btn-danger" href="{{route('export-jenis_pdf')}}" class="btn btn-danger"><i class=" fa fa-file-pdf-o"></i>Export PDF</a>
                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#formImport">
                                 <i class="fas fa-file-excel"></i> Import
                             </button>
