@@ -19,6 +19,9 @@ class UserController extends Controller
                 case '2';
                     return redirect()->intended('/pelanggan');
                     break;
+                case '3';
+                    return redirect()->intended('/laporan');
+                    break;
             }
         }
         return view('auth.login');
@@ -35,6 +38,10 @@ class UserController extends Controller
                     break;
                 case '2':
                     return redirect()->intended('/pelanggan');
+                    break;
+                    break;
+                case '3':
+                    return redirect()->intended('/laporan');
                     break;
             }
             return redirect()->intended('/');

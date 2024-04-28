@@ -55,8 +55,12 @@ class StokController extends Controller
     }
     public function pdf()
     {
-        $stok = stok::all();
-        $pdf = Pdf::loadView('stok.data', compact('stok'));
-        return $pdf->download('stok.pdf');
+        // Data untuk ditampilkan dalam PDF
+        $data = stok::all();
+
+        // Render view ke HTML
+        $pdf = PDF::loadView('stok/stok-pdf', ['stok' => $data]);
+        $date = date('Y-m-d');
+        return $pdf->download($date . '-data-stok.pdf');
     }
 }

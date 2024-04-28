@@ -13,6 +13,7 @@
 
     <!-- Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('adminlte3')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
 
     <link href="{{ asset('sweetalert')}}/sweetalert2.min.css" rel="stylesheet">
 
@@ -67,6 +68,8 @@
                     @include('template.admin')
                     @elseif(Auth::user()->level == 2)
                     @include('template.kasir')
+                    @elseif(Auth::user()->level == 3)
+                    @include('template.owner')
                     @endif
                     <!-- /sidebar menu -->
 

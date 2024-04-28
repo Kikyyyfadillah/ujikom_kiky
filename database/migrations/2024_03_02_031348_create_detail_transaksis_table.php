@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('transaksi_id')->references('id')->on('transaksi')->cascadeOnDelete();
             $table->foreignId('menu_id')->references('id')->on('menu')->cascadeOnDelete();
-            $table->decimal('jumlah');
+            $table->unsignedBigInteger('jumlah');
             $table->float('subtotal');
             $table->timestamps();
         });

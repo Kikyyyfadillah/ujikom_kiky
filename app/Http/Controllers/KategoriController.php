@@ -45,8 +45,12 @@ class KategoriController extends Controller
     }
     public function pdf()
     {
-        $kategori = kategori::all();
-        $pdf = Pdf::loadView('kategori.data', compact('kategori'));
-        return $pdf->download('kategori.pdf');
+        // Data untuk ditampilkan dalam PDF
+        $data = kategori::all();
+
+        // Render view ke HTML
+        $pdf = PDF::loadView('kategori/kategori-pdf', ['kategori' => $data]);
+        $date = date('Y-m-d');
+        return $pdf->download($date . '-data-kategori.pdf');
     }
 }

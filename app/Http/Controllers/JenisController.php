@@ -43,10 +43,14 @@ class JenisController extends Controller
         Excel::import(new jenisImport, $request->import);
         return redirect()->back()->with('success', 'Import data jenis berhasil');
     }
-    public function pdf()
+  public function pdf()
     {
-        $jenis = jenis::all();
-        $pdf = Pdf::loadView('jenis.data', compact('jenis'));
-        return $pdf->download('jenis.pdf');
+        // Data untuk ditampilkan dalam PDF
+        $data = jenis::all(); 
+          
+        // Render view ke HTML
+        $pdf = PDF::loadView('jenis/jenis-pdf', ['jenis'=>$data]); 
+        $date = date('Y-m-d');
+        return $pdf->download($date.'-data-jenis.pdf');
 }
 }

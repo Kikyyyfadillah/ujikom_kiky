@@ -13,7 +13,9 @@ class DetailTransaksiController extends Controller
      */
     public function index()
     {
-        //
+        $data['title'] = 'Detail Transaksi';
+        $data['DetailTransaksi'] = DetailTransaksi::all();
+        return view('laporan.index')->with($data);
     }
 
     /**

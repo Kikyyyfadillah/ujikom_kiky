@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\DetailTransaksiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HubungiController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\PemesananController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\MejaController;
+use App\Models\DetailTransaksi;
 use App\Models\kategori;
 use Database\Factories\AbsensiFactory;
 
@@ -83,5 +85,10 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/produk', ProdukController::class);
         Route::resource('/about', AboutController::class);
         Route::get('nota/{nofaktur}', [TransaksiController::class, 'faktur']);
+    });
+
+    //owner
+    Route::group(['middleware' => ['cekUserLogin:3']], function () {
+        Route::resource('/laporan', DetailTransaksiController::class);
     });
 });
