@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-md-12 col-sm-3 bg-white">
                     <div class="x_title">
-                        <h2>Meja</h2>
+                        <h2>Kategori</h2>
                         <div class="float-right ml-auto">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormKategori">
                                 <i class="fas fa-poll-h"></i> Tambah Kategori

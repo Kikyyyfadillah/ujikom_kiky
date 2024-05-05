@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\DetailTransaksiController;
+use App\Http\Controllers\grafikController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HubungiController;
@@ -38,6 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::resource('/stok', StokController::class);
         Route::resource('/absensi', AbsensiController::class);
         Route::resource('/hubungi', HubungiController::class);
+        Route::resource('/grafik', grafikController::class);
     });
 
     //export import
@@ -90,5 +92,8 @@ Route::group(['middleware' => 'auth'], function () {
     //owner
     Route::group(['middleware' => ['cekUserLogin:3']], function () {
         Route::resource('/laporan', DetailTransaksiController::class);
+        Route::get('export/laporan', [DetailTransaksiController::class, 'exportData'])->name('export-laporan');
+        Route::get('export/laporan-pdf', [DetailTransaksiController::class, 'pdf'])->name('export-laporan.pdf');
+
     });
 });

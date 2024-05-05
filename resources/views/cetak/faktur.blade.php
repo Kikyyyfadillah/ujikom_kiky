@@ -101,8 +101,8 @@
 
 <body>
     <div class="container-box">
-        <h2>Cat Caffe</h2>
-        <h3>Pencinta kucing beli di caffe ini</h3>
+        <h2>Mood Caffe</h2>
+        <h3>Khop Khun Khap</h3>
         <hr>
 
         @if(isset($transaksi))

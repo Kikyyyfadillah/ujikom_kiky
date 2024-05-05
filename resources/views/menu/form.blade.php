@@ -13,15 +13,9 @@
 
                     <div id="method"></div>
                     <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-4 col-form-label">Nama menu</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nama_menu" value="" name="nama_menu">
-                        </div>
-                    </div>
-                    <div class="form-group row">
                         <label for="jenis_id" class="col-sm-4 col-form-label">Jenis ID</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="jenis_id" id="jenis_id">
+                            <select class="form-control" name="jenis_id" id="nama_jenis">
                                 <option value="">Pilih Jenis ID</option>
                                 @foreach ($jenis as $p)
                                 <option value="{{ $p->id }}">{{ $p->nama_jenis }}</option>
@@ -29,6 +23,13 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-4 col-form-label">Nama menu</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nama_menu" value="" name="nama_menu">
+                        </div>
+                    </div>
+
 
                     <div id="method"></div>
                     <div class="input-group mb-3">
@@ -65,29 +66,29 @@
     </div>
 </div>
 
-    <div class="modal fade" id="formImport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Import Data Menu</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="{{ route('import-menu') }}" enctype="multipart/form-data">
-                        @csrf
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="menu">File Excel</label>
-                                <input type="file" name="import" id="import">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary" id="btn-submit">Uploads</button>
-                            </div>
+<div class="modal fade" id="formImport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Import Data Menu</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="{{ route('import-menu') }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="menu">File Excel</label>
+                            <input type="file" name="import" id="import">
                         </div>
-                    </form>
-                </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" id="btn-submit">Uploads</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>

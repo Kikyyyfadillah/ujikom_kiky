@@ -116,7 +116,7 @@
     $('#modalFormMenu').on('show.bs.modal', function(e) {
         const btn = $(e.relatedTarget)
         const mode = btn.data('mode')
-        const jenis_id = btn.data('jenis_id')
+        const nama_jenis = btn.data('jenis_id')
         const nama_menu = btn.data('nama_menu')
         const harga = btn.data('harga')
         const image = btn.data('image')
@@ -126,7 +126,7 @@
         if (mode === 'edit') {
             console.log(image)
             modal.find('.modal-title').text('Edit Data Menu')
-            modal.find('#jenis_id').val(jenis_id)
+            modal.find('#nama_jenis').val(nama_jenis)
             modal.find('#nama_menu').val(nama_menu)
             modal.find('#harga').val(harga)
             // modal.find('#image').val(image)
@@ -135,7 +135,7 @@
             modal.find('#method').html('@method("PATCH")')
         } else {
             modal.find('.modal-title').text('Input Data jenis')
-            modal.find('#jenis_id').val('')
+            modal.find('#nama_jenis').val('')
             modal.find('#nama_menu').val('')
             modal.find('#harga').val('')
             modal.find('#image').val('')

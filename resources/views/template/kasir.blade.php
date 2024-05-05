@@ -7,9 +7,9 @@
         <ul class="nav side-menu">
             <li><a href="{{ url('pemesanan') }}"><i class="fa fa-readme"></i>Pemesanan</a></li>
         </ul>
-        <!-- <ul class="nav side-menu">
+        <ul class="nav side-menu">
             <li><a href="{{ url('meja') }}"><i class="fa fa-readme"></i>Meja</a></li>
-        </ul> -->
+        </ul>
         <!-- <ul class="nav side-menu">
             <li><a href="{{ url('produk') }}"><i class="fa fa-readme"></i>Produk</a></li>
         </ul>

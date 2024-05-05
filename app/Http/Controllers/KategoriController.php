@@ -21,7 +21,7 @@ class KategoriController extends Controller
     public function store(StorekategoriRequest $request)
     {
         kategori::create($request->all());
-        return redirect('kategori')->with('success', 'Data menu berhasil di tambahkan!');
+        return redirect('kategori')->with('success', 'Data kategori berhasil di tambahkan!');
     }
     public function update(UpdatekategoriRequest $request, string $id)
     {
@@ -41,7 +41,7 @@ class KategoriController extends Controller
     public function importData(Request $request)
     {
         Excel::import(new kategoriImport, $request->import);
-        return redirect()->back()->with('success', 'Import data jenis berhasil');
+        return redirect()->back()->with('success', 'Import data kategori berhasil');
     }
     public function pdf()
     {

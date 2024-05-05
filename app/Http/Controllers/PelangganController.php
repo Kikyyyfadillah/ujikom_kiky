@@ -37,7 +37,7 @@ class PelangganController extends Controller
     public function destroy($id)
     {
         pelanggan::find($id)->delete();
-        return redirect('pelanggan')->with('success', 'Data jenis berhasil dihapus!');
+        return redirect('pelanggan')->with('success', 'Data pelanggan berhasil dihapus!');
     }
     public function exportData()
     {

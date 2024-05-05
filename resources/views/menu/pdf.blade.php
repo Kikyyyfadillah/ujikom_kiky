@@ -40,23 +40,25 @@
 
 <body>
 
-    <h1>Data Stok</h1>
+    <h1>Data Menu</h1>
     <table id="customers">
         <tr>
             <th>No</th>
-            <th>Menu</th>
-            <th>Jumlah</th>
+            <th>Nama Jenis</th>
+            <th>Nama Menu</th>
+            <th>Harga</th>
         </tr>
         @php
         $no = 1;
         @endphp
-        @foreach ($stok as $p)
+        @foreach ($menu as $p)
         <tr>
             <td>{{ $no++ }}</td>
-            <td>{{ $p->menu->nama_menu}}</td>
-            <td>{{ $p->jumlah}}</td>
-            <!-- <td><img width="70" src="data:image/png;base64,{{ $p->imageData }}" alt="{{ $p->name }}"></td>
-            <td>{{ $p->deskripsi }}</td> -->
+            <td>{{ $p->nama_jenis}}</td>
+            <td>{{ $p->nama_menu}}</td>
+            <td>{{ $p->harga}}</td>
+            <!-- <td><img width="70" src="data:image/png;base64,{{ $p->imageData }}" alt="{{ $p->name }}"></td> -->
+            <td>{{ $p->deskripsi }}</td>
         </tr>
         @endforeach
     </table>

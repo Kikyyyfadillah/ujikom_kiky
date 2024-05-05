@@ -15,7 +15,7 @@ class JenisController extends Controller
 {
     public function index() //property dari class
     {
-        $data['jenis'] = jenis::get(); //$variabel // [array] 
+        $data['jenis'] = jenis::get(); 
         return view('jenis.index')->with($data);
     }
     public function store(StorejenisRequest $request) //param

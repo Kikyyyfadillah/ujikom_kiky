@@ -22,7 +22,7 @@ class MejaController extends Controller
     public function store(StoremejaRequest $request)
     {
         meja::create($request->all());
-        return redirect('meja')->with('success', 'Data pemesanan berhasil di tambahkan!');
+        return redirect('meja')->with('success', 'Data meja berhasil di tambahkan!');
     }
     public function update(UpdatemejaRequest $request, string $id)
     {
@@ -32,7 +32,7 @@ class MejaController extends Controller
     public function destroy($id)
     {
         meja::find($id)->delete();
-        return redirect('meja')->with('success', 'Data pemesanan berhasil dihapus!');
+        return redirect('meja')->with('success', 'Data meja berhasil dihapus!');
     }
     public function exportData()
     {

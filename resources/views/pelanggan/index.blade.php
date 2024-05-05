@@ -14,7 +14,10 @@
             <div class="dashboard_graph">
                 <div class="row x_title">
                     <div class="col-md-6">
-                        <h3>PELANGGAN</h3>
+                        <h3>
+                            <h3>CASHIER CAFE</h3>
+
+                        </h3>
                     </div>
                     <div class="col-md-6">
                         <div id="reportrange" class="pull-right" style="
@@ -31,7 +34,7 @@
                 </div>
                 <div class="col-md-12 col-sm-3 bg-white">
                     <div class="x_title">
-                        <h2>Kategori</h2>
+                        <h2>Pelanggan</h2>
                         <div class="float-right ml-auto">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalFormPelanggan">
                                 Tambah pelanggan

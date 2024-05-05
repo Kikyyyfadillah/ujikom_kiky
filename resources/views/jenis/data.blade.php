@@ -5,7 +5,7 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama</th>
+                    <th>Nama Jenis</th>
                     <th>Tools</th>
                 </tr>
             </thead>

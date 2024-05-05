@@ -12,12 +12,11 @@ class menu extends Model
     protected $table = 'menu';
 
     protected $guarded = ['id'];
-    protected $fillable = ['jenis_id','nama_menu','harga','image','deskripsi'];
 
 
     public function jenis()
     {
-        return $this->belongsTo(jenis::class, 'jenis_id');
+        return $this->belongsTo(jenis::class);
     }
     public function stok()
     {

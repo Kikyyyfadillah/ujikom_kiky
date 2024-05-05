@@ -4,8 +4,8 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Nama menu</th>
-                    <th>Jenis</th>
+                    <th>Jenis id</th>
+                    <th>Nama Menu</th>
                     <th>Harga</th>
                     <th>Image</th>
                     <th>Deskripsi</th>
@@ -16,25 +16,23 @@
                 @foreach ($menu as $p)
                 <tr>
                     <td>{{ $i = !isset ($i) ? ($i = 1) : ++$i }}</td>
-                    <td>{{ $p->nama_menu }}</td>
                     <td>{{ $p->jenis->nama_jenis }}</td>
+                    <td>{{ $p->nama_menu }}</td>
                     <td>{{ $p->harga }}</td>
                     @if (request()->route()->getActionMethod() == 'generatepdf')
-                    <td><img width="90px" src="data:image/jpeg;base64,{{ $p->imageData }}" alt=""></td>
+                    <td><img width="70px" src="data:image/jpeg;base64,{{ $p->image }}" alt=""></td>
                     @else
-                    <!-- <td><img width="70px" src="{{ asset('images/' . $p->image) }}" alt=""></td> -->
-                    <td><img width="90px" src="{{asset('image')}}/{{$p -> image}}" alt="" srcset=""></td>
+                    <td><img width="70px" src="{{ asset('image/' . $p->image) }}" alt=""></td>
                     @endif
-                    <!-- <td><img width="90px" src="{{asset('image')}}/{{$p -> image}}" alt="" srcset=""></td> -->
                     <td>{{ $p->deskripsi }}</td>
                     <td>
-                        <button class="btn text-warning" data-toggle="modal" data-target="#modalFormMenu" data-mode="edit" data-id="{{$p->id}}" data-nama_menu="{{ $p->nama_menu }}" data-jenis_id="{{ $p->jenis_id }}" data-harga="{{ $p->harga }}" data-image="{{ $p->image }}" data-deskripsi="{{ $p->deskripsi }}">
+                        <button class="btn text-warning" data-toggle="modal" data-target="#modalFormMenu" data-mode="edit" data-id="{{ $p->id }}" data-jenis_id="{{ $p->jenis_id }}" data-nama_menu="{{ $p->nama_menu }}" data-harga="{{ $p->harga }}" data-image="{{ $p->image }}" data-deskripsi="{{ $p->deskripsi }}">
                             <i class="fas fa-edit"></i>
                         </button>
                         <form method="post" action="{{ route('menu.destroy', $p->id) }}" style="display: inline">
                             @csrf
                             @method('DELETE')
-                            <button type="button" class="btn text-danger btn-delete delete-data" data-nama_menu="{{ $p->nama_menu }}">
+                            <button type="button" class="btn text-danger delete-data" data-nama_menu="{{ $p->nama_menu }}">
                                 <i class="fas fa-trash"></i>
                             </button>
                         </form>
@@ -43,5 +41,6 @@
                 @endforeach
             </tbody>
         </table>
+           
     </div>
 </div>
